@@ -40,5 +40,7 @@ and extract it in the root folder of this project.
 
 -->Add all the jars from the stanford core nlp folder to java build path.
 
+Database structure is in sentimentdb.sql
+
 
 
