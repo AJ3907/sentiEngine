@@ -74,6 +74,11 @@ public class BreakReviewIntoSentence {
 				str=str.replaceAll("i \'am", "i am");
 				str=str.replaceAll("i \'ve", "i have");
 				str=str.replaceAll("i \'ll", "i will");
+				
+				str=str.replaceAll("can\'t", "cannot");
+				str=str.replaceAll("won\'t", "would not");
+				
+				//in general
 				str=str.replaceAll("n\'t", " not");
 				//keep only alphabets and space.
 				str=str.replaceAll("[^a-zA-Z ]", " ");
