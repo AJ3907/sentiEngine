@@ -74,7 +74,9 @@ public class lemmatize {
 	
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		// TODO Auto-generated method stub
-		
+		/*
+		 * testing the stanford core nlp 
+		 */
 		String text = "This World is an amazing place";
         Properties props = new Properties();
         props.setProperty("annotators", "tokenize, ssplit, pos, lemma, parse, sentiment");
