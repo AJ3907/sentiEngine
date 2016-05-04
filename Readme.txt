@@ -42,5 +42,9 @@ and extract it in the root folder of this project.
 
 Database structure is in sentimentdb.sql
 
+IMPORTANT!!!!!!!!!!!!!!!!!!
+NOTE: IN all our codes, the sql updates(ps.esecuteUpdate()) are commented to ensure that no unecessary
+updates take place, while running the code.
+
 
 
