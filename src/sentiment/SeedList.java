@@ -47,7 +47,7 @@ public class SeedList {
 		FileInputStream fstream;
 		BufferedReader br;
 		String line,sql;
-		fstream = new FileInputStream(config.getminiFilePath()+"negative-words.txt");
+		fstream = new FileInputStream("./negative-words.txt");
 		
 		br = new BufferedReader(new InputStreamReader(fstream)); 
 		
@@ -61,7 +61,7 @@ public class SeedList {
 				
 		}
 		
-	    fstream = new FileInputStream(config.getminiFilePath()+"positive-words.txt");
+	    fstream = new FileInputStream("./positive-words.txt");
 		
 		br = new BufferedReader(new InputStreamReader(fstream)); 
 	    while ((line = br.readLine()) != null) {
