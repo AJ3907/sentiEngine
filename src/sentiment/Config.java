@@ -28,6 +28,7 @@ public class Config {
 	
 	private String minitestdatapath ="./generatedFiles/reviewset/";
 	private String minifilepath ="./generatedFiles/features/";
+	private String minijsonpath ="./generatedFiles/sentiJSON/";
 	
 	public Connection getConnection(String DB_NAME,String IP_ADDR,String USER, String PASS){
 		String DB_URL = "jdbc:mysql://"+IP_ADDR+"/"+DB_NAME+"?autoReconnect=true&failOverReadOnly=false&maxReconnects=20";
@@ -56,6 +57,10 @@ public class Config {
 	
 	public String getminiDataPath(){
 		return minitestdatapath;
+	}
+	
+	public String getminiJSONPath(){
+		return minijsonpath;
 	}
 	
 	

@@ -14,16 +14,24 @@ import java.sql.Statement;
 public class SeedList {
 	/***************************************************************
 	 * 
-	 * STEP 10-ii:
+	 * STEP 10-ii-a:
 	 * 
 	 * Till now we have mined opinions.
 	 * 
-	 * Now we have to proceed for finding sentiments of the opinion.
-	 * 
-	 * 
-	 * 
+	 * Now we have to proceed for finding sentiments of the opinion. 
+	 * So, according to Bing Liu paper, we generate a seed list by 
+	 * putting negative words and positive words. 
 	 * 
 	 */
+	
+	// Database name
+	static final String DB_NAME = "sentiment";
+	// Database ip
+	static final String IP_ADDR = "127.0.0.1:3306";
+	
+	// Database credentials
+	static final String USER = "root";
+	static final String PASS = "1234";
 
 	public static void main(String[] args) throws IOException, SQLException {
 		// TODO Auto-generated method stub
@@ -33,7 +41,7 @@ public class SeedList {
 		java.sql.PreparedStatement ps = null;
 
 		Config config = new Config();
-		conn = config.getConnection();
+		conn = config.getConnection(DB_NAME,IP_ADDR,USER,PASS);
 		
 		
 		FileInputStream fstream;

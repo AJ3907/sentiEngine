@@ -50,12 +50,8 @@ public class wrapper {
 		CompactPruning compactPruning = null;
 		RedundancyPruning redundancyPruning = null;
 		OpinionExtraction opinionExtraction = null;
-		
-		
-//		OpinionsForPhrases opinionsForPhrases = null;
-//		FreqFeaturePhrases ffp = null;
-//		ffptodb obj = null;
-//		sentiToJson stoj = null;
+		OpinionsForPhrases opinionsForPhrases = null;
+		sentiToJson stoj = null;
 		
 		
 		
@@ -115,10 +111,23 @@ public class wrapper {
 			//step9
 			//opinionsForPhrases.main(arg);
 			
+			/*******************************************
+			 * OPINION SENTIMENT GENERATION STARTS HERE
+			 * YOU HAVE TWO ALTERNATIVES:
+			 * 10-i or 10-ii
+			 */
+			/* step 10-i:
+			 * Run SentiSentence.java
+			 */
+			/*
+			 * step 10-ii:
+			 * -a Run SeedList.java
+			 * -b Run WordOrientation.java
+			 */
 			
-			//rp.main(arg);
-			//ffp.main(arg);
-			//obj.main(arg);
+			/*step 11
+			 * TO OUTPUT SENTI TO JSON FORMAT FOR WORDCLOUD
+			 */
 			//stoj.main(arg);
 			
 			

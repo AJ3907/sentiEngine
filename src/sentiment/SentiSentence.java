@@ -22,8 +22,27 @@ import edu.stanford.nlp.util.CoreMap;
 import rita.support.PorterStemmer;
 
 
-public class SentiSentence {
 
+
+public class SentiSentence {
+	/**************************************************
+	 * 
+	 * STEP 10-I: USING STANFORD SENTIMENT GENERATOR 
+	 * 
+	 * generates sentiment for all the opinion sentences.
+	 * 
+	 * 
+	 */
+	
+
+	// Database name
+	static final String DB_NAME = "sentiment";
+	// Database ip
+	static final String IP_ADDR = "127.0.0.1:3306";
+	
+	// Database credentials
+	static final String USER = "root";
+	static final String PASS = "1234";
 	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
 		
@@ -33,7 +52,7 @@ public class SentiSentence {
 		java.sql.PreparedStatement ps = null;
 
 		Config config = new Config();
-		conn = config.getConnection();
+		conn = config.getConnection(DB_NAME,IP_ADDR,USER,PASS);
 		stmt = (Statement) conn.createStatement();
 		
 		String sql = "SELECT p.feature,p.opinion,coalesce(n.isNegateNear,0) as isNegateNear,p.sentenceId,p.minDistId from potentialfeature p "
@@ -71,13 +90,14 @@ public class SentiSentence {
 	            	polarity*=-1;
 	            
 	            System.out.println(polarity+":"+sentiment + "\t" + sentence);
-	            sql = "INSERT INTO sentisentence VALUES(null,?,?,?,?)";
+	            sql = "INSERT INTO sentisentence VALUES(null,?,?,?,?,?)";
 				ps = conn.prepareStatement(sql);
-				ps.setString(1, text);
-				ps.setLong(2, relPos);
-				ps.setLong(3,sentenceId);
-				ps.setInt(4,polarity);
-				ps.executeUpdate();
+				ps.setString(1, rs.getString("opinion"));
+				ps.setString(2,rs.getString("feature"));
+				ps.setLong(3, sentenceId);
+				ps.setLong(4,relPos);
+				ps.setInt(5,polarity);
+				//ps.executeUpdate();
 				break;
 	        }
 
