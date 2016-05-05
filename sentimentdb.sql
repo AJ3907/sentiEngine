@@ -18,36 +18,6 @@ USE `sentiment`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cities`
---
-
-DROP TABLE IF EXISTS `cities`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cities` (
-  `id` int(11) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `dummy`
---
-
-DROP TABLE IF EXISTS `dummy`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `dummy` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `word` varchar(45) DEFAULT NULL,
-  `sentence` longtext,
-  `reviewId` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Table structure for table `electronics_review`
 --
 
@@ -68,68 +38,6 @@ CREATE TABLE `electronics_review` (
   `id` bigint(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=86287 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `featurewisescore`
---
-
-DROP TABLE IF EXISTS `featurewisescore`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `featurewisescore` (
-  `productId` varchar(255) NOT NULL,
-  `feature` varchar(45) NOT NULL,
-  `positiveScore` int(11) NOT NULL DEFAULT '0',
-  `negativeScore` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`productId`,`feature`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `fsentid`
---
-
-DROP TABLE IF EXISTS `fsentid`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `fsentid` (
-  `id` bigint(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `myresult`
---
-
-DROP TABLE IF EXISTS `myresult`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `myresult` (
-  `feature` text,
-  `opinion` text,
-  `sentenceId` int(11) DEFAULT NULL,
-  `polarity` int(11) DEFAULT NULL,
-  `isNegateNear` int(11) DEFAULT NULL,
-  `finalpolarity` int(11) DEFAULT NULL,
-  `id` int(11) DEFAULT NULL,
-  `reviewId` int(11) DEFAULT NULL,
-  `sentence` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `negate_words`
---
-
-DROP TABLE IF EXISTS `negate_words`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `negate_words` (
-  `word` varchar(45) NOT NULL,
-  PRIMARY KEY (`word`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,34 +119,6 @@ CREATE TABLE `reviewsentence` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `sentencescore`
---
-
-DROP TABLE IF EXISTS `sentencescore`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sentencescore` (
-  `sentenceId` bigint(11) NOT NULL,
-  `score` int(11) NOT NULL,
-  PRIMARY KEY (`sentenceId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `sentiments`
---
-
-DROP TABLE IF EXISTS `sentiments`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sentiments` (
-  `id` int(11) DEFAULT NULL,
-  `sentence` text,
-  `polarity` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Table structure for table `sentisentence`
 --
 
@@ -247,7 +127,8 @@ DROP TABLE IF EXISTS `sentisentence`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sentisentence` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sentence` longtext,
+  `opinion` longtext,
+  `feature` longtext,
   `sentenceId` int(11) DEFAULT NULL,
   `relPos` int(11) DEFAULT NULL,
   `polarity` int(11) DEFAULT NULL,
@@ -276,20 +157,6 @@ CREATE TABLE `tagwords` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `temp2`
---
-
-DROP TABLE IF EXISTS `temp2`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `temp2` (
-  `manual` int(11) DEFAULT NULL,
-  `stanford` int(11) DEFAULT NULL,
-  `finalpolarity` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping events for database 'sentiment'
 --
 
@@ -306,4 +173,4 @@ CREATE TABLE `temp2` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-04  2:21:04
+-- Dump completed on 2016-05-06  4:36:55
