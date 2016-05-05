@@ -43,6 +43,7 @@ public class SentiSentence {
 	// Database credentials
 	static final String USER = "root";
 	static final String PASS = "1234";
+	
 	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
 		
